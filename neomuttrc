@@ -1,0 +1,71 @@
+set realname = "Barry Wasdell"
+set from = "barry@bwsd.dev"
+set use_domain
+set use_from
+set reverse_name
+
+set folder = 'imaps://imap.migadu.com/'
+set imap_check_subscribed
+set imap_keepalive = 300
+set imap_user = "barry@bwsd.dev"
+set imap_pass = "`pass migadu/barry@bwsd.dev`"
+unset imap_passive
+unset move
+
+set smtp_url = 'smtps://$imap_user@smtp.migadu.com'
+set smtp_pass = "`pass migadu/barry@bwsd.dev`"
+
+set ssl_force_tls
+set sendmail = "/usr/bin/msmtp"
+set record = +Sent
+
+set header_cache = "~/.cache/mutt"
+set tmpdir = "~/.tmp"
+
+set spoolfile = +INBOX
+set postponed = +Drafts
+mailboxes = +INBOX
+
+set mail_check = 60
+set sleep_time = 0
+
+set sort = 'reverse-threads'
+set sort_aux = reverse-last-date-received
+set strict_threads
+
+ignore *
+unignore date subject x-user-agent posted-to content-type
+unignore to cc bcc reply-to from
+set edit_headers
+set editor = vim
+set charset = utf-8
+set send_charset = "utf-8"
+auto_view text/html
+set mailcap_path = '~/.mailcap'
+unset move
+
+set signature = "~/.signature"
+set quote_regexp = '^(>[ \t]*)+'
+set sort_aux = 'last-date-received'
+
+set fast_reply
+set include
+set forward_format = 'Fw: %s'
+
+# sidebar
+set sidebar_delim_chars = '/'
+set sidebar_short_path
+set sidebar_visible
+set sidebar_width = 24
+
+set crypt_autosign
+set crypt_opportunistic_encrypt
+set crypt_replyencrypt
+set crypt_verify_sig
+
+set pgp_default_key = "0x8767471E3CEC993D"
+set pgp_sign_as = "0x6E900CB6155C3C4A"
+set pgp_use_gpg_agent
+
+# bindings
+source '~/.config/neomutt/bindings.conf'

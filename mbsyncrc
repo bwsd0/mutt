@@ -1,0 +1,23 @@
+IMAPAccount bwsd
+Host imap.migadu.com
+User barry@bwsd.dev
+Port 993
+SSLType IMAPS
+AuthMechs Login
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore bwsd-local
+Path ~/.mail/bwsd/
+INBOX ~/.mail/bwsd/INBOX
+SubFolders Verbatim
+
+IMAPStore bwsd-remote
+Account bwsd
+
+Channel bwsd
+Master :bwsd-remote:
+Slave :bwsd-local:
+Expunge None
+Create Both
+SyncState *
+Patterns "INBOX" "Archive" "Sent" "Drags" "Junk"
